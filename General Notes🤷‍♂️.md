@@ -27,8 +27,13 @@
 	- [ ] Custom Wordlists.
 ## Web CTF
 ### A) File Inclusion / path traversal
-    - IF the site have file opening method like => ...?home=about
-      - TRY: home=`php://filter/convert.base64-encode/resource=index`
+- IF the site have file opening method like => ...?home=about
+	- TRY: home=`php://filter/convert.base64-encode/resource=index`
+- Display the running program
+	- `/proc/self/cmdline`
+	- https://xen0vas.github.io/Exploiting-the-LFI-vulnerability-using-the-proc-self-stat-method/#
+	- https://www.geeksforgeeks.org/proc-file-system-linux/
+	- https://secnigma.wordpress.com/tag/proc-pid-cmdline/
 ### B) IDOR
 
 
@@ -114,6 +119,9 @@ gitdumper.sh https://re.com/.git/ .git
 	- /var/www/html/.htaccess
 	- /var/www/stats/.htaccess
 	- .htaccess can be `.htpasswd`
+- SSH key user resolver
+	- `ssh-keygen -p -f user.pem`
+- 
 ## Priv - Esc
 - Check files in /tmp , /opt
 - linpeas

