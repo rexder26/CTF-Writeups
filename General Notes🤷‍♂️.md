@@ -101,6 +101,9 @@ gitdumper.sh https://re.com/.git/ .git
 ```
 
 # REMEMBERS
+- To analyze Files
+	- `md5sum *`
+	- `xxd file.txt`
 - Always when you get programs check for their version and find if there is any exploit for them
 - For directory search
 	- dirb
