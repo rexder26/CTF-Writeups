@@ -4,7 +4,7 @@
 - CTF Description: My 1st Owned Hard Machine but, i got this more like medium level
 - Date: 
 - Platform: 
-- Category: 
+- Category: #activedirectory #smb #ASREProasting #SeBackup #DCsync 
 
 # Findings
 

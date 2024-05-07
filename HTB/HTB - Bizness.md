@@ -4,7 +4,7 @@
 - CTF Description: 
 - Date: 
 - Platform: 
-- Category: 
+- Category: #ApacheOFbiz 
 
 Hello Guys, Today i was little bit Distracted but i was trying to plan the `Bizness` CTF from HTB, it looks Easy But it took me a lot also done with some little help. Enjoy ...
 # Findings

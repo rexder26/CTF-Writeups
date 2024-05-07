@@ -4,7 +4,7 @@
 - CTF Description: 
 - Date: 
 - Platform: 
-- Category: #activedirectory #smb
+- Category: #activedirectory #smb #GPP #Kerbeosting 
 
 # Findings
 

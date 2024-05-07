@@ -4,7 +4,7 @@
 - CTF Description: 
 - Date: 
 - Platform: 
-- Category: #xss #lfi #reverse_eng#
+- Category: #xss #lfi #reverse_eng #log_var
 
 # Findings
 

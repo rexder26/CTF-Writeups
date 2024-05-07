@@ -4,7 +4,7 @@
 - CTF Description: 
 - Date: 
 - Platform: 
-- Category: #xss
+- Category: #xss #ssti #jinja #qpdf
 
 # Findings
 

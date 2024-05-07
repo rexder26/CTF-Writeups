@@ -4,7 +4,7 @@
 - CTF Description: 
 - Date: 
 - Platform: 
-- Category: 
+- Category: #xss #OSinjection #sudo 
 
 # Findings
 

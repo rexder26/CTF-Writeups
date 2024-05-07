@@ -4,7 +4,7 @@
 - CTF Description: 
 - Date: 4/4/2024
 - Platform: HTB
-- Category: Machine
+- Category: #vm2 #mysql #
 
 # Findings
 

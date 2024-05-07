@@ -4,7 +4,7 @@
 - CTF Description: 
 - Date: 4/4/2024
 - Platform: 
-- Category: 
+- Category: #vhost #joomla
 
 # Findings
 

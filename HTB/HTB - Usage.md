@@ -10,22 +10,7 @@
 
 ## External
 ### Enumeration
-`$enum$`
 
-### Gaining Access
-
-
-## Internal
-### Enumeration
-`$enum$`
-
-### Gaining Access
-
-
-### Maintaining Access
-
-
-# Random Notes
 ![](https://i.imgur.com/K2IgZne.png)
 
 ![](https://i.imgur.com/MXxbLKH.png)
@@ -54,3 +39,18 @@ m1VeW1Mbi9yeDk4VDd5UnNSS2NZVkpKa09XQTVnbEpXRVVYcVZFVTZqdkdFY3NRSmdKZUpxNmE0YkdkS
 }
 ```
 **Laravel Deserialization RCE**
+
+### Gaining Access
+
+
+## Internal
+### Enumeration
+`$enum$`
+
+### Gaining Access
+
+
+### Maintaining Access
+
+
+# Random Notes
