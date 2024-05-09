@@ -51,7 +51,7 @@
 ![](https://i.imgur.com/rUZSdTO.png)
 https://vsociety.medium.com/cve-2023-24329-bypassing-url-blackslisting-using-blank-in-python-urllib-library-ee438679351d
 ![](https://i.imgur.com/Dq022TV.png)
-i used psedo file -` /proc/self/cmdline`
+i used psedo file -` /proc/self/cmdline `
 ![](https://i.imgur.com/M38Txhr.png)
 - The Pseudo File ,Contains the command and the file name which runs.
 	- ![](https://i.imgur.com/2DYu25C.png)

