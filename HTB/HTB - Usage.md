@@ -39,6 +39,10 @@ m1VeW1Mbi9yeDk4VDd5UnNSS2NZVkpKa09XQTVnbEpXRVVYcVZFVTZqdkdFY3NRSmdKZUpxNmE0YkdkS
 }
 ```
 **Laravel Deserialization RCE**
+![](https://i.imgur.com/VJosR5T.png)
+- Tried SQLi nothing, But we cant tried on the 1st page `usage.htb` lets try.
+	- Then I tried SQLi on every Entry points and i got some on the `forget password` page.
+- 
 
 ### Gaining Access
 

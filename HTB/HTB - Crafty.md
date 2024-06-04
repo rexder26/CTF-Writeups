@@ -44,3 +44,4 @@ The next step for the attacker is to then find a tool that they can connect to t
 Join Server
 ![](https://i.imgur.com/B7wCN6d.png)
 ![](https://i.imgur.com/Rf88VQV.png)
+- Just Skipped it with password. 10.10.11.18

