@@ -1,6 +1,6 @@
 3- 10.149.12.62
-- SIEM : ` Natanhailu82 : Hackyou@123 `
-- AF: ` tube_team : yaIbLFq|IVxJL2mDoKnH `
+- SIEM : ` Natanhailu : password123 `
+- AF: ` tube_team : yaIbLFq|IVxJL2 `
 
 
 Links
